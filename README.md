@@ -15,3 +15,6 @@ binary_sensor:
 it will add binary sensors for all your door/window contacts
 
 e.g. binary_sensor.back_door
+
+All credit to the homeassistant devs and the following without which it would not be possible
+https://github.com/domwillcode/yale-smart-alarm-client
