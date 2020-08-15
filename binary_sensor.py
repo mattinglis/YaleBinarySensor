@@ -20,8 +20,6 @@ from homeassistant.components.sensor import PLATFORM_SCHEMA
 import homeassistant.helpers.config_validation as cv
 from datetime import timedelta
 
-DOMAIN = "yale_smart_alarm.sensor"
-
 CONF_AREA_ID = "area_id"
 
 DEFAULT_NAME = "Yale Smart Alarm"
