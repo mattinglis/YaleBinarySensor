@@ -60,7 +60,6 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     doors = client.get_doors_status()
     
     status = client._get_authenticated("/api/panel/device_status/");
-    _LOGGER.error("yale:"+str(status))
 
     for door in doors:
         add_entities([YaleBinarySensor(hass, client, door, doors)], True)
