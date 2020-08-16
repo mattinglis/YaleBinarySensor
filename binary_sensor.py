@@ -28,6 +28,10 @@ DEFAULT_AREA_ID = "1"
 
 MIN_TIME_BETWEEN_UPDATES = timedelta(seconds=30)
 
+YALE_DOOR_CONTACT_STATE_CLOSED = "closed"
+YALE_DOOR_CONTACT_STATE_OPEN = "open"
+YALE_DOOR_CONTACT_STATE_UNKNOWN = "unknown"
+
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
@@ -54,6 +58,9 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
         return
     
     doors = client.get_doors_status()
+    
+    status = client._get_authenticated("/api/panel/device_status/");
+    _LOGGER.error("yale:"+str(status))
 
     for door in doors:
         add_entities([YaleBinarySensor(hass, client, door, doors)], True)
@@ -68,6 +75,10 @@ class YaleBinarySensor(Entity):
         self.yale_object = yale_object
         
     @property
+    def icon(self):
+        return self._icon
+        
+    @property
     def name(self):
         """Return the name of the sensor."""
         return self.device_name
@@ -75,10 +86,15 @@ class YaleBinarySensor(Entity):
     @property
     def state(self):
         """Return the state of the sensor."""
-        if self.yale_object[self.device_name] == "closed":
-            return "closed"
+        if self.device_name in self.yale_object.keys():
+            if self.yale_object[self.device_name] == YALE_DOOR_CONTACT_STATE_OPEN:
+                self._icon = 'mdi:door-open'
+            else:
+                self._icon = 'mdi:door-closed'
+            return self.yale_object[self.device_name]
         else:
-            return "open"
+            self._icon = 'mdi:error'
+            return YALE_DOOR_CONTACT_STATE_UNKNOWN
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):
