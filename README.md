@@ -14,6 +14,8 @@ binary_sensor:
   
 it will add binary sensors for all your door/window contacts
 
+binary_sensor(New).py is a new way of dealing with the data and pulling more information out. To make this work, rename it to binary_sensor.py replacing the old one in config/custom_components/yalebinarysensor
+
 e.g. binary_sensor.back_door
 
 All credit to the homeassistant devs and the following without which it would not be possible
