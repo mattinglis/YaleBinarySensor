@@ -90,13 +90,27 @@ class YaleBinarySensor2(Entity):
     def device_state_attributes(self):
         """Return the state attributes of the sensor."""
         attribs = {}
+        
+        if "device_status.low_battery" in self.yale_object['status1']:
+            attribs['battery_low'] = 'True'
+        else:
+            attribs['battery_low'] = 'False'
+            
+        if "1" in self.yale_object['bypass']:
+            attribs['bypass'] = 'True'
+        else:
+            attribs['bypass'] = 'False'
+        
+        attribs['status1'] = self.yale_object['status1']
+            
         attribs['area'] = self.yale_object['area']
         attribs['no'] = self.yale_object['no']
         attribs['type'] = self.device_type
-        attribs['status1'] = self.yale_object['status1']
-        attribs['bypass'] = self.yale_object['bypass']
+            
         attribs['rssi'] = self.yale_object['rssi']
         attribs['type_no'] = self.yale_object['type_no']
+ 
+
         return attribs
 
     @property
