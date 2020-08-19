@@ -92,14 +92,14 @@ class YaleBinarySensor2(Entity):
         attribs = {}
         
         if "device_status.low_battery" in self.yale_object['status1']:
-            attribs['battery_low'] = 'True'
+            attribs['battery_low'] = 'true'
         else:
-            attribs['battery_low'] = 'False'
+            attribs['battery_low'] = 'false'
             
         if "1" in self.yale_object['bypass']:
-            attribs['bypass'] = 'True'
+            attribs['bypass'] = 'true'
         else:
-            attribs['bypass'] = 'False'
+            attribs['bypass'] = 'false'
         
         attribs['status1'] = self.yale_object['status1']
             
