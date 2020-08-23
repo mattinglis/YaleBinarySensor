@@ -10,11 +10,12 @@ binary_sensor:
   - platform: yalebinary
     username: <YALE USERNAME>
     password: <YALE PASSWORD>
+    additional_sensors: True
 ~~~
   
-it will add binary sensors for all your door/window contacts
+it will add binary sensors for all your yale system components, if you only want door/window contacts set additional_sensors : False
 
-binary_sensor(New).py is a new way of dealing with the data and pulling more information out. To make this work, rename it to binary_sensor.py replacing the old one in config/custom_components/yalebinarysensor
+Adds sensors to your system e.g. pulls in additional information e.g. battery state and temper information
 
 e.g. binary_sensor.back_door
 
