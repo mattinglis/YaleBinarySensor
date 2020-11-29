@@ -123,10 +123,10 @@ class YaleBinarySensor2(Entity):
         """Return the state of the sensor."""
         state = self.yale_object["status1"]
         
-        if "device_status.dc_close" in state:
+        if "device_status.dc_close" in state or "device_status.lock" in state:
             self._is_on = False
             return YALE_DOOR_CONTACT_STATE_CLOSED
-        elif "device_status.dc_open" in state:
+        elif "device_status.dc_open" in state or "device_status.unlock" in state:
             self._is_on = True
             return YALE_DOOR_CONTACT_STATE_OPEN
         elif "device_status.tamper_open" in state:
