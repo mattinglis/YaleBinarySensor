@@ -132,6 +132,8 @@ class YaleBinarySensor2(Entity):
         elif "device_status.tamper_open" in state:
             self._is_on = True
             return YALE_DOOR_CONTACT_STATE_TAMPER
+        elif "device_status.low_battery" in state:
+            self._is_on = False
         elif not state:
             self._is_on = False
             return YALE_DOOR_CONTACT_STATE_EMPTY
