@@ -4,5 +4,6 @@
         "documentation": "https://github.com/mattinglis/YaleBinarySensor",
         "requirements": ["yalesmartalarmclient==0.1.7"],
         "dependencies": [],
-        "codeowners": []
+        "codeowners": [],
+        "version" : "1.2.0"
 }
