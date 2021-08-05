@@ -1,9 +1,9 @@
 {
         "domain": "yalebinarysensor",
         "name": "Yale Custom Binary Sensors",
-        "version" : "1.2.0",
+        "version" : "2.2.0",
         "documentation": "https://github.com/mattinglis/YaleBinarySensor",
-        "requirements": ["yalesmartalarmclient==0.1.7"],
+        "requirements": ["yalesmartalarmclient==0.3.4"],
         "dependencies": [],
         "codeowners": ["@mattinglis"]
 }
