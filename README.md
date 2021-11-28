@@ -7,7 +7,7 @@ Need to add the following to your configuration.yaml
 
 ~~~text
 binary_sensor:
-  - platform: yalebinary
+  - platform: yalebinarysensor
     username: <YALE USERNAME>
     password: <YALE PASSWORD>
     additional_sensors: True
