@@ -3,7 +3,6 @@ import logging
 
 import voluptuous as vol
 from yalesmartalarmclient.client import (
-    AuthenticationError,
     YaleSmartAlarmClient,
 )
 
@@ -62,7 +61,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
     try:
         client = YaleSmartAlarmClient(username, password, area_id)
-    except AuthenticationError:
+    except:
         _LOGGER.error
         ("Authentication failed. Check credentials")
         return
