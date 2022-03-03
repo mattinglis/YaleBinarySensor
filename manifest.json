@@ -3,7 +3,7 @@
         "name": "Yale Custom Binary Sensors",
         "version" : "2.2.0",
         "documentation": "https://github.com/mattinglis/YaleBinarySensor",
-        "requirements": ["yalesmartalarmclient==0.3.4"],
+        "requirements": ["yalesmartalarmclient==0.3.8"],
         "dependencies": [],
         "codeowners": ["@mattinglis"]
 }
